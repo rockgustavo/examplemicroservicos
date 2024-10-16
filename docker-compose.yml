@@ -24,6 +24,18 @@ services:
     networks:
       - app-network
 
+  sales-db: # mongodb://admin:admin:adm123@localhost:27017/sales
+    image: mongo:7.0.0
+    container_name: sales-db
+    environment:
+      MONGODB_DATABASE: sales
+      MONGODB_USER: admin
+      MONGODB_PASS: adm123
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+
 networks:
   app-network:
     driver: bridge

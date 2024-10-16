@@ -1,4 +1,4 @@
-# project MicroServices Example
+# MicroServices Example
 
 ## Projeto Exemplo de Arquitetura de Microserviços
 
@@ -19,4 +19,35 @@ Após rodar o container utilize esta **URL**:
 ```
 http://localhost:8080/swagger-ui/index.html#/
 
+```
+
+## Se um container não subir pode estar ocorrendo um conflito de porta:
+
+#### Para evitar conflitos de portas nas aplicações:
+
+**Confira se a porta 5432** está sendo utilizada em sua máquina:
+No Windows, você pode usar:
+
+```
+netstat -ano | findstr :5432
+```
+
+Em sistemas baseados em Linux ou Mac, use o comando:
+
+```
+sudo lsof -i :5432
+```
+
+**Você pode encerrar o processo que está utilizando a porta**, copiando o PID(númeração lado direito)
+
+No Windows, você pode usar:
+
+```
+taskkill /PID <numeroPID> /F
+```
+
+Em sistemas baseados em Linux ou Mac, use o comando:
+
+```
+sudo kill -9 <numeroPID>
 ```
