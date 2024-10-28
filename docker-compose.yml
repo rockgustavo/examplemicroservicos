@@ -44,6 +44,39 @@ services:
     networks:
       - app-network
 
+  auth-api:
+    build:
+      context: ./auth-api
+    container_name: auth-api
+    environment:
+      - PORT=8080
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  product-api:
+    build:
+      context: ./product-api
+    container_name: product-api
+    environment:
+      - PORT=8081
+    ports:
+      - "8081:8081"
+    networks:
+      - app-network
+
+  sales-api:
+    build:
+      context: ./sales-api
+    container_name: sales-api
+    environment:
+      - PORT=8082
+    ports:
+      - "8082:8082"
+    networks:
+      - app-network
+
 networks:
   app-network:
     driver: bridge
